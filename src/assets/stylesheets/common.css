@@ -14,7 +14,8 @@
     height: 100vh;
     left: 0;
     top: 0;
-    background-image: url("https://source.unsplash.com/random");
+    background-image:linear-gradient(-45deg, #f5eeed 25%, #f4e2de 25%, #f4e2de 50%, #f5eeed 50%, #f5eeed 75%, #f4e2de 75%, #f4e2de);
+    /*background-image: url("https://source.unsplash.com/random");*/
     background-position: center;
     background-size: cover;
     filter: blur(5px);
@@ -31,7 +32,7 @@
 }
 
 .organisms-upload-layer {
-    width: 40vw;
+    width: 480px;
     padding: 16px 32px 32px 32px;
     background-color: #FAFAFA;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

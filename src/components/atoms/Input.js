@@ -5,7 +5,17 @@ function Input(props) {
     const type = props.type;
 
     return (
-        <input className={className} type={type} />
+        <input
+            className={className}
+            type={type}
+            accept="text/csv"
+            onChange={(e) => {
+                if (props.onChange !== null) {
+                    const csv = e.target.files[0]
+                    props.onChange(csv)
+                }
+            }}
+        />
     );
 }
 
