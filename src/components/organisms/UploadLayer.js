@@ -4,9 +4,11 @@ import React, {useState} from 'react'
 import Text from "../atoms/Text";
 import FileInputBox from "../molecules/FileInputBox";
 import SubmitButton from "../molecules/SubmitButton";
+import Loading from "../molecules/Loading";
 
 function UploadLayer() {
     const [csvState, setCsvState] = useState(null);
+    const [isResponseState, setIsResponseState] = useState(false);
 
     const onSubmitButtonClick = async () => {
         if (csvState === null) {
@@ -14,7 +16,8 @@ function UploadLayer() {
             return;
         }
 
-        // console.log(csvState)
+        setIsResponseState(true);
+
         const formData = new FormData();
         formData.append('data', csvState);
 
@@ -25,6 +28,8 @@ function UploadLayer() {
 
         const response = await fetch('https://dip-intern-challenge-api.herokuapp.com/api/v1/pred', options);
         const blob = await response.blob();
+
+        setIsResponseState(false);
 
         // CSV ファイル自動ダウンロード
         const link = document.createElement('a');
@@ -40,6 +45,8 @@ function UploadLayer() {
         }
     };
 
+    const LoadingView = (isResponseState) ? <Loading /> : null;
+
     return (
         <div className="organisms-upload-layer">
             <div className="organisms-upload-layer-heading">
@@ -54,6 +61,8 @@ function UploadLayer() {
             <div className="organisms-upload-layer-submit-button">
                 <SubmitButton onClick={onSubmitButtonClick} />
             </div>
+
+            {LoadingView}
         </div>
     );
 }

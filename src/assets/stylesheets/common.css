@@ -7,6 +7,30 @@
     width: 100%;
 }
 
+.molecules-loading {
+    position: fixed;
+    display: flex;
+    width: 320px;
+    height: 320px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    z-index: 9999;
+}
+
+.molecules-loading > span {
+    margin-bottom: 32px;
+    color: #FAFAFA;
+    font-weight: bold;
+}
+
 /***** Organisms *****/
 .organisms-upload-background-layer {
     position: absolute;
